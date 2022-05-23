@@ -8,7 +8,9 @@ class ArticlesController < ApplicationController
 
   def show
     article = Article.find(params[:id])
+    session[:pageviews_remaining] ||= 3
     render json: article
+    
   end
 
   private
